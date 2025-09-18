@@ -199,7 +199,7 @@ while(true){
          return h;
       }
       if(g == "column1_B"){
-         const hh = ((a12 * a33 * a44) + (a13 * a34 * a42) + (a32 * a43 * a14)) - ((a42 * a33 * a14) - (a32 * a13 * a44) - (a43 * a34 * a12))
+         const hh = -(((a12 * a33 * a44) + (a13 * a34 * a42) + (a32 * a43 * a14)) - ((a42 * a33 * a14) - (a32 * a13 * a44) - (a43 * a34 * a12)))
          return hh;
       }
       if(g == "column1_C"){
@@ -207,8 +207,18 @@ while(true){
          return hhh;
       }
       if(g == "column1_D"){
-         const hhhh = ((a12 * a23 * a34) + (a13 * a24 * a32) + (a22 * a33 * a14)) - ((a32 * a23 * a14) - (a13 * a22 * a34) - (a24 * a33 * a12))
+         const hhhh = -(((a12 * a23 * a34) + (a13 * a24 * a32) + (a22 * a33 * a14)) - ((a32 * a23 * a14) - (a13 * a22 * a34) - (a24 * a33 * a12)))
          return hhhh;
+      }
+   }
+   function column4x4_2(){
+      if (g == "column2_A"){
+         const b = -(((a21 * a33 * a44 ) + (a23 * a34 * a41) + (a31 * a43 * a24)) - ((a41 * a33 * a24) - (a31 * a23 * a44) - (a43 * a34 * a21)))
+         return b;
+      }
+      if (g == "column2_B"){
+         const bb = ((a11 * a33 * a44) + (a13 * a34 * a41) + (a31 * a43 * a14)) - ((a14 * a33 * a41) - (a13 * a31 * a44) - (a43 * a34 * a11))
+         return bb;
       }
    }
 
@@ -220,36 +230,47 @@ while(true){
 
 
 
-
-   if(d == "3x3"){
-   if (c == "Только решение"){
-    console.log(`Ответ:${a()}`)
-   }else if (c == "Только цифры"){
-    console.table(result)
-    }else if (["31" , "32" , "33"].includes(c)){
-   console.log(`Ответ:${column3()}`)
-    }else if (["11" , "12" , "13"].includes(c)){
-   console.log(`Ответ:${column1()}`)
-    }else if (["21" , "22" , "23"].includes(c)){
-   console.log(`Ответ:${column2()}`)
-    }else if (["a1" , "a2" , "a3"].includes(c)){
-   console.log(`Ответ:${line()}`)
-   }else if (["b1" , "b2" , "b3"].includes(c)){
-   console.log(`Ответ:${line2()}`)
-    }else if (["c1" , "c2" , "c3"].includes(c)){
-   console.log(`Ответ:${line3()}`)
-    }else {console.log("НЕВЕРНО")}
+   function Otvet3x3(){
+      if(d == "3x3"){
+         if (c == "Только решение"){
+         console.log(`Ответ:${a()}`)
+      }else if (c == "Только цифры"){
+         console.table(result)
+      }else if (["31" , "32" , "33"].includes(c)){
+         console.log(`Ответ:${column3()}`)
+      }else if (["11" , "12" , "13"].includes(c)){
+         console.log(`Ответ:${column1()}`)
+      }else if (["21" , "22" , "23"].includes(c)){
+         console.log(`Ответ:${column2()}`)
+      }else if (["a1" , "a2" , "a3"].includes(c)){
+         console.log(`Ответ:${line()}`)
+      }else if (["b1" , "b2" , "b3"].includes(c)){
+         console.log(`Ответ:${line2()}`)
+      }else if (["c1" , "c2" , "c3"].includes(c)){
+         console.log(`Ответ:${line3()}`)
+      }else {console.log("НЕВЕРНО")}
+    }
    }
-
-   if(r == "2x2"){
-      console.log(`Решение: (${a11} * ${a22}) - (${a12} * ${a21}) = ${m2x2(a11 , a12 , a21 , a22)}`)
-   }else{console.log("Неверное операция")}
-
-   if(["column1_A" , "column1_B" , "column1_C" , "column1_D"].includes(g)){
-      console.log(`Ответ:${column4x4_1()}`)
+   
+   function Otvet2x2(){
+      if(r == "2x2"){
+         console.log(`Решение: (${a11} * ${a22}) - (${a12} * ${a21}) = ${m2x2(a11 , a12 , a21 , a22)}`)
+      }else{console.log("Неверное операция")}
    }
-    
-    const again = await prompt('\nХотите продолжить? (y/n): ');
+   
+   function Otvet4x4(){
+      if(["column1_A" , "column1_B" , "column1_C" , "column1_D"].includes(g)){
+         console.log(`Ответ:${column4x4_1()}`)
+      }else if (["column2_A", "column2_B"].includes(g)){
+         console.log(`Ответ:${column4x4_2()}`)
+      }
+   
+   }  
+      Otvet2x2()
+      Otvet3x3()
+      Otvet4x4()
+   
+      const again = await prompt('\nХотите продолжить? (y/n): ');
     if (again.toLowerCase() !== 'y') break;
 
    }
