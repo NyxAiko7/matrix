@@ -220,6 +220,10 @@ while(true){
          const bb = ((a11 * a33 * a44) + (a13 * a34 * a41) + (a31 * a43 * a14)) - ((a14 * a33 * a41) - (a13 * a31 * a44) - (a43 * a34 * a11))
          return bb;
       }
+      if (g == "column2_C"){
+         const bbb = -(((a11 * a23 * a44) + (a13 * a24 * a41) + (a21 * a43 * a14)) - ((a14 * a23 * a41) - (a13 * a21 * a44) - (a43 * a24 * a11)))
+         return bbb;
+      }
    }
 
 
