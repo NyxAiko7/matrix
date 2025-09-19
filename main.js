@@ -224,6 +224,10 @@ while(true){
          const bbb = -(((a11 * a23 * a44) + (a13 * a24 * a41) + (a21 * a43 * a14)) - ((a14 * a23 * a41) - (a13 * a21 * a44) - (a43 * a24 * a11)))
          return bbb;
       }
+      if (g == "column2_D"){
+         const bbbb = ((a11 * a23 * a34) + (a13 * a24 * a31) + (a21 * a33 * a14)) - ((a14 * a23 * a31) - (a21 * a13 * a34) - (a23 * a33 * a11))
+         return bbbb;
+      }
    }
 
 
